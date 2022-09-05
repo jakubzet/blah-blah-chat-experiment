@@ -124,8 +124,6 @@ export class Chat {
           },
         };
 
-        this.renderMessages();
-
         this.socket.send(JSON.stringify(message));
 
         target.value = "";
