@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Blah Blah - the best chat ever!</title>
+  </head>
+  <body>
+    <main id="app" class="app is-login-screen">
+      <div id="login" class="login">
+        <div class="login__box">
+          <label for="user">Blah Blah - the best chat ever!</label>
+          <input
+            id="user"
+            type="text"
+            aria-label="User"
+            autofocus
+            autocomplete="off"
+            placeholder="Enter your name here"
+          />
+          <span>Then press [Enter] to... enter! ^_^</span>
+        </div>
+      </div>
+
+      <header class="app__bar">
+        Blah Blah - the best chat ever! /&nbsp;<span id="timer">00:00:00</span>
+      </header>
+
+      <ul id="contacts_list" class="contacts"></ul>
+
+      <div
+        id="messages_list_container"
+        class="conversation__messages-list-container"
+      >
+        <div
+          class="conversation__messages-list-container-edge is-top"
+          data-edge
+        ></div>
+
+        <ul id="messages_list" class="conversation__messages-list"></ul>
+
+        <div
+          class="conversation__messages-list-container-edge is-bottom"
+          data-edge
+        ></div>
+      </div>
+
+      <textarea
+        id="message_input"
+        class="conversation__message-input"
+        placeholder="Type something, then press Enter to send the message"
+        aria-label="Your message"
+        spellcheck="false"
+      ></textarea>
+    </main>
+    <script type="module" src="/src/main.ts"></script>
+  </body>
+</html>
