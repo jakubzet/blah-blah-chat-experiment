@@ -37,8 +37,8 @@ export function setupAndHandleChatWebSocketServer(
     });
   };
 
-  webSocketServer.on("connection", (ws) => {
-    ws.on("message", (rawData) => {
+  webSocketServer.on("connection", (webSocket) => {
+    webSocket.on("message", (rawData) => {
       const msgData: WEBSOCKET_MESSAGES = JSON.parse(rawData + "");
 
       if (msgData.type === "chat-member-name-sent") {
@@ -51,9 +51,9 @@ export function setupAndHandleChatWebSocketServer(
           isConnected: true,
         });
 
-        ws.memberId = memberId;
+        webSocket.memberId = memberId;
 
-        ws.send(
+        webSocket.send(
           stringifySocketMessage<MSG_CHAT_MEMBER_ID_ASSIGNED>({
             type: "chat-member-id-assigned",
             payload: memberId,
@@ -77,8 +77,8 @@ export function setupAndHandleChatWebSocketServer(
       }
     });
 
-    ws.on("close", () => {
-      const disconnectedMemberId = ws.memberId;
+    webSocket.on("close", () => {
+      const disconnectedMemberId = webSocket.memberId;
 
       if (disconnectedMemberId != null) {
         let disconnectedMemberData = members.get(disconnectedMemberId);
