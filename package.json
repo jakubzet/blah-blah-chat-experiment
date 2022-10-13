@@ -17,9 +17,9 @@
     "build": "npm run build:server & npm run build:client",
     "build:client": "tsc && vite build",
     "build:server": "tsc ./server/* --allowSyntheticDefaultImports --target ESNext --outDir ./dist",
-    "start": "npm run start:server & npm run start:client",
+    "start": "npm run start:server",
     "start:client": "vite preview",
-    "start:server": "node -r dotenv/config ./dist/server/server.js"
+    "start:server": "node --es-module-specifier-resolution=node -r dotenv/config ./dist/server/server.js"
   },
   "dependencies": {
     "cors": "^2.8.5",

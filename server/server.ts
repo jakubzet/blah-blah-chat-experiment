@@ -26,6 +26,9 @@ setupAndHandleChatWebSocketServer(websocketServer);
 // NOTE: Create Express server
 const expressServer = express();
 
+// NOTE: In production it's the server who exposes built front app
+expressServer.use(express.static("dist"));
+
 expressServer
   .use(cors({ origin: "*" }))
   // NOTE: Middleware and controller for sending time from server via Server-Sent Events (SSE)

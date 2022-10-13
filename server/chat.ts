@@ -40,6 +40,7 @@ export function setupAndHandleChatWebSocketServer(
   webSocketServer.on("connection", (webSocket) => {
     webSocket.on("message", (rawData) => {
       const msgData: WEBSOCKET_MESSAGES = JSON.parse(rawData + "");
+      console.log("# Server received message:\n%s", rawData);
 
       if (msgData.type === "chat-member-name-sent") {
         const memberId = members.size.toString();

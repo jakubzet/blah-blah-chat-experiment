@@ -8,13 +8,11 @@ import type {
   localeTimeSenderParams,
 } from "../common/types";
 
-const ENDPOINT_WEBSOCKET_SERVER = `ws://localhost:${
-  import.meta.env.VITE_SERVER_PORT
-}`;
+const ENDPOINT_WEBSOCKET_SERVER = `${import.meta.env.VITE_WS_URL}/api`;
 
-const ENDPOINT_TIME_EVENT = `http://localhost:${
-  import.meta.env.VITE_SERVER_PORT
-}/get-current-time`;
+const ENDPOINT_TIME_EVENT = `${
+  import.meta.env.VITE_API_URL
+}/api/get-current-time`;
 
 // FIXME: Move to parameters in constructor
 const EDGE_REACHED_CLASS_NAME = "is-blinking";
